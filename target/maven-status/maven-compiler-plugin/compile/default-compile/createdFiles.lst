@@ -1,0 +1,8 @@
+com\example\demo\SecurityConfig.class
+com\example\demo\BounceTrackingService.class
+com\example\demo\MailServerApplication.class
+com\example\demo\EmailRequest.class
+com\example\demo\EmailSendingConfiguration.class
+com\example\demo\EmailService.class
+com\example\demo\EmailController.class
+com\example\demo\TrackingController.class

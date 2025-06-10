@@ -1,0 +1,67 @@
+server:
+  port: 8080  # Change the port if needed
+
+spring:
+  application:
+    name: mail-server
+
+  # Database Configuration (H2 for Local Testing)
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update  # Change to 'none' in production
+    show-sql: true  # Enables SQL logging (for debugging)
+
+  # Enable bean overriding to fix multiple bean conflicts
+  main:
+    allow-bean-definition-overriding: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: info.avair.ai@gmail.com  # Replace with your actual email
+    password: lrha lhmm ehnx awwu  # Use an App Password instead of real password
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.debug: true
+
+  # IMAP Configuration for Reply Tracking
+  imap:
+    host: imap.gmail.com
+    port: 993
+    username: info.avair.ai@gmail.com
+    password: lrha lhmm ehnx awwu
+    store: imaps
+
+# Logging Configuration
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO  # Adjust based on debugging needs
+    org.apache.http: DEBUG  # Log HTTP requests for tracking
+
+# Management & Actuator Configuration (Enable all endpoints for tracking insights)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+
+# Tracking Configuration
+tracking:
+  open-url: http://localhost:8080/track/open
+  click-url: http://localhost:8080/track/click
+  reply-check-interval: 60000  # Check for replies every 60 seconds
