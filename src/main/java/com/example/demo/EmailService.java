@@ -25,7 +25,7 @@ public class EmailService {
         return "❌ Error: Recipient email list is empty!";
     }
 
-    String rawTrackingBaseURL = "https://c03f-116-72-196-16.ngrok-free.app/track/open";
+    String rawTrackingBaseURL = "https://prospective-malynda-avairai-ccebe557.koyeb.app/track/open";
     String trackingBaseURL = rawTrackingBaseURL.replaceAll("/$", ""); // Remove trailing slash if present
 
     int successCount = 0;
